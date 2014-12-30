@@ -7,7 +7,7 @@ default Ember.Component.extend({
 
         if(typeof type !== 'string')
         {
-        	return false;
+            return false;
         }
 
         type = type.toLowerCase();
@@ -27,7 +27,7 @@ default Ember.Component.extend({
 
     }.on('didInsertElement'),
     renderArea: function() {
-    	var options = {
+        var options = {
             element: this.$().attr('id'),
             data: this.get('data'),
             xkey: this.get('xKey'),
@@ -36,10 +36,10 @@ default Ember.Component.extend({
             resize: this.get('resize') ? this.get('resize') : false
         };
 
-        Morris.Area(options);
+        window.Morris.Area(options);
     },
     renderLine: function() {
-    	var options = {
+        var options = {
             element: this.$().attr('id'),
             data: this.get('data'),
             xkey: this.get('xKey'),
@@ -48,10 +48,10 @@ default Ember.Component.extend({
             resize: this.get('resize') ? this.get('resize') : false
         };
         
-        Morris.Line(options);
+        window.Morris.Line(options);
     },
     renderBar: function() {
-    	var options = {
+        var options = {
             element: this.$().attr('id'),
             data: this.get('data'),
             xkey: this.get('xKey'),
@@ -60,15 +60,15 @@ default Ember.Component.extend({
             resize: this.get('resize') ? this.get('resize') : false
         };
         
-        Morris.Bar(options);
+        window.Morris.Bar(options);
     },
     renderDonut: function() {
-    	var options = {
+        var options = {
             element: this.$().attr('id'),
             data: this.get('data'),
             resize: this.get('resize') ? this.get('resize') : false
         };
         
-        Morris.Donut(options);
+        window.Morris.Donut(options);
     },
 });
