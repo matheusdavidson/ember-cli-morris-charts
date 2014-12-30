@@ -7,6 +7,6 @@ module.exports = {
 
         app.import('vendor/morris.css');
         app.import('vendor/morris.min.js');
-        app.import('vendor/raphael.js');
+        app.import('vendor/raphael.min.js');
     }
 };
