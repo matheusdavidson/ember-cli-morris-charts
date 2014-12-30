@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-morris-charts",
   "description": "Ember CLI addon wrapper for Morris Charts jQuery plugin",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "directories": {
     "doc": "doc",
     "test": "tests"
