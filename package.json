@@ -1,6 +1,7 @@
 {
     "name": "ember-cli-morris-charts",
-    "version": "0.0.0",
+    "description": "Ember CLI addon wrapper for Morris Charts jQuery plugin",
+    "version": "0.0.1",
     "directories": {
         "doc": "doc",
         "test": "tests"
@@ -10,12 +11,19 @@
         "build": "ember build",
         "test": "ember test"
     },
-    "repository": "https://github.com/stefanpenner/ember-cli",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/matheusdavidson/ember-cli-morris-charts"
+    },
     "engines": {
         "node": ">= 0.10.0"
     },
-    "author": "",
+    "author": "Matheus Davidson",
     "license": "MIT",
+    "maintainers": [{
+        "name": "matheusdavidson",
+        "email": "matheusdavidson@gmail.com"
+    }],
     "devDependencies": {
         "body-parser": "^1.2.0",
         "broccoli-asset-rev": "0.3.1",
