@@ -82,14 +82,15 @@ default Ember.Controller.extend({
     }],
     actions: {
         addData: function(type) {       
+            var new_data;
             if (type !== 'donutData') {
-                var new_data = {
+                new_data = {
                     y: (Math.floor(Math.random() * (2050 - 2000 + 1)) + 2000).toString(),
                     a: Math.floor(Math.random() * (100 - 10 + 1)) + 10,
                     b: Math.floor(Math.random() * (100 - 10 + 1)) + 10,
                 };
             } else {
-                var new_data = {
+                new_data = {
                     label: "New sequence" + (Math.floor(Math.random() * (2050 - 2000 + 1)) + 2000).toString() + '',
                     value: Math.floor(Math.random() * (100 - 10 + 1)) + 10,
                 };
