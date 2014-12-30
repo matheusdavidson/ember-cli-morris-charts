@@ -10,7 +10,7 @@ The plugin has been wrapped in this ember addon so you can use it with your cont
 ```npm install --save-dev ember-cli-morris-charts```
 
 ## Usage
-For now, only the basic options are working, but i will migrate everything very soon!<br />
+For now, only the basic options are working, but i will implement everything very soon!<br />
 There are 4 types of charts available(Area, Line, Bar, Donut), acording to [morris charts docs](http://morrisjs.github.io/morris.js/#what-next):
 
 **Area**<br />
