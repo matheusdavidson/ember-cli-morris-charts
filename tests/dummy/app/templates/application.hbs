@@ -1,33 +1,172 @@
 <div class="jumbotron">
     <div class="container">
         <h1>Ember CLI Morris Charts</h1>
-        <p>This is an ember cli addon to easyly create awesome charts using morris charts jquery plugin.
+        <p>This is an ember cli addon to easily create awesome charts using <a href="https://github.com/morrisjs/morris.js" target="_blank">morris charts jquery plugin</a>.
         <br /><br />
         The plugin has been wrapped in this ember addon so you can use it with your controller or model properties, whenever data is updated, the chart will also update.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Using in your project »</a></p>
+        <p><a class="btn btn-primary btn-lg" href="#start" role="button">Using in your project »</a> <a class="btn btn-warning btn-lg" href="#examples" role="button">Examples »</a> <a class="btn btn-warning btn-lg" href="https://github.com/matheusdavidson/ember-cli-morris-charts" target="_blank" role="button">View on github »</a></p>
     </div>
 </div>
 <div class="container">
-    <div class="row">
+    <div class="row" id="start">
         <div class="col-sm-12">
             <div class="page-header">
                 <h1>Including Morris charts in your project</h1>
             </div>
+            <div class="alert alert-warning" role="alert"><b>jQuery must be loaded in your project!</b> in next releases this will be done automatically</div>
+            Is very easy to use in your ember-cli project, just go to your project folder and run this command:
+            <br />
+            <code>
+            npm install --save-dev ember-cli-morris-charts
+            </code><br />
+            Thats all! You're ready to go!
         </div>
     </div>
     <div class="row">
         <div class="col-sm-12">
-            {{morris-charts type="Area" data=data xKey="y" yKeys=yKeys labels=labels resize=true}}
-            {{morris-charts type="Line" data=data xKey="y" yKeys=yKeys labels=labels resize=true}}
-            {{morris-charts type="Bar" data=data xKey="y" yKeys=yKeys labels=labels resize=true}}
-            {{morris-charts type="Donut" data=dataDonut resize=true}}
+            <div class="page-header">
+                <h1>How do i use?</h1>
+            </div>
+            For now, only the basic options are working, but i will implement everything very soon!<br />
+            There are 4 types of charts available(Area, Line, Bar, Donut), acording to <a href="http://morrisjs.github.io/morris.js/#what-next" target="_blank">morris charts docs</a>:<br />
+            <h4>Area</h4>
+            <code>&#123&#123morris-charts type="Area" data=DATA xKey=XKEY yKeys=YKEYS labels=LABELS resize=RESIZE&#125;&#125;</code>
+            <h4>Line</h4>
+            <code>&#123&#123morris-charts type="Line" data=DATA xKey=XKEY yKeys=YKEYS labels=LABELS resize=RESIZE&#125;&#125;</code>
+            <h4>Bar</h4>
+            <code>&#123&#123morris-charts type="Bar" data=DATA xKey=XKEY yKeys=YKEYS labels=LABELS resize=RESIZE&#125;&#125;</code>
+            <h4>Donut</h4>
+            <code>&#123&#123morris-charts type="Donut" data=DATA resize=RESIZE&#125;&#125;</code>
+            <br /><br />
+            <i>You can use the tags above in your handlebars templates and provide extra properties (like data, xKey, yKeys, labels and resize)in your <b>model</b> or <b>controllers.</b></i>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-header">
+                <h1>Available options</h1>
+            </div>
+            <div class="alert alert-info" role="alert"><b>The chart will update whenever you change any of this properties</b></div>
+            <h4>TYPE</h4>
+            <i>String(Area, Line, Bar, Donut)</i>
+            <h4>DATA</h4>
+            <i>Array, refer to morris chart docs according to TYPE</i>
+            <h4>XKEY</h4>
+            <i>String, should be one of your DATA array key, refer to morris chart docs</i>
+            <h4>yKEYS</h4>
+            <i>Array, should be an array with your DATA keys that you want displayed on y series, refer to morris chart docs</i>
+            <h4>LABELS</h4>
+            <i>Array, Label for each key in your y series, refer to morris chart docs</i>
+            <h4>RESIZE</h4>
+            <i>Bool, True will make the chart responsive, defaults to false(not responsive)</i>
+        </div>
+    </div>
+    <div class="row" id="examples">
+        <div class="col-sm-12">
+            <div class="page-header">
+                <h1>Examples</h1>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        Area
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            {{morris-charts type="Area" data=areaData xKey=areaXKey yKeys=yKeys labels=labels resize=true}}
+                        </div>
+                        <div class="col-sm-3">
+                            Selected options <small>try to update these</small>
+                            <br /><br />
+                            <label>yKey</label>
+                            {{view Ember.Select content=xKeySel class="form-control" value=areaXKey}}
+                            <br /><br />
+                            <label>Inserir novo valor</label>
+                            <br />
+                            <button type="button" class="btn btn-primary" {{action "addData" "areaData"}}>atualizar dados</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        Line
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            {{morris-charts type="Line" data=lineData xKey=lineXKey yKeys=yKeys labels=labels resize=true}}
+                        </div>
+                        <div class="col-sm-3">
+                            Selected options <small>try to update these</small>
+                            <br /><br />
+                            <label>yKey</label>
+                            {{view Ember.Select content=xKeySel class="form-control" value=lineXKey}}
+                            <br /><br />
+                            <label>Inserir novo valor</label>
+                            <br />
+                            <button type="button" class="btn btn-primary" {{action "addData" "lineData"}}>atualizar dados</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        Bar
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            {{morris-charts type="Bar" data=barData xKey=barXKey yKeys=yKeys labels=labels resize=true}}
+                        </div>
+                        <div class="col-sm-3">
+                            Selected options <small>try to update these</small>
+                            <br /><br />
+                            <label>yKey</label>
+                            {{view Ember.Select content=xKeySel class="form-control" value=barXKey}}
+                            <br /><br />
+                            <label>Inserir novo valor</label>
+                            <br />
+                            <button type="button" class="btn btn-primary" {{action "addData" "barData"}}>atualizar dados</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        Donut
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            {{morris-charts type="Donut" data=donutData resize=true}}
+                        </div>
+                        <div class="col-sm-3">
+                            Selected options <small>try to update these</small>
+                            <br /><br />
+                            <label>Inserir novo valor</label>
+                            <br />
+                            <button type="button" class="btn btn-primary" {{action "addData" "donutData"}}>atualizar dados</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<div class="container">
-    {{morris-charts type="Area" data=data xKey="y" yKeys=yKeys labels=labels resize=true}}
-    {{morris-charts type="Line" data=data xKey="y" yKeys=yKeys labels=labels resize=true}}
-    {{morris-charts type="Bar" data=data xKey="y" yKeys=yKeys labels=labels resize=true}}
-    {{morris-charts type="Donut" data=dataDonut resize=true}}
-</div>
-{{outlet}}
+
+<footer class="footer">
+    <div class="container">
+        <p class="pull-right"><a href="https://www.facebook.com/matheusdavidson" target="_blank">facebook</a> - <a href="https://github.com/matheusdavidson" target="_blank">github</a></p>
+        <p class="text-muted pull-left">Developed by Matheus Davidson</p>
+    </div>
+</footer>

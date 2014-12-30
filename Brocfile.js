@@ -27,9 +27,9 @@ app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.w
 app.import('bower_components/bootstrap/dist/js/bootstrap.js');
 
 // CSS
-app.import('vendor/morris.css');
-// JS
-app.import('vendor/morris.min.js');
-app.import('vendor/raphael.js');
+// app.import('vendor/morris.css');
+// // JS
+// app.import('vendor/morris.min.js');
+// app.import('vendor/raphael.js');
 
 module.exports = app.toTree();
