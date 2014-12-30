@@ -1,25 +1,40 @@
-# Ember-cli-morris-charts
+# Ember-cli-morris-charts 
 
-This README outlines the details of collaborating on this Ember addon.
+This is an ember cli addon to easyly create awesome charts using [morris charts jquery plugin](https://github.com/morrisjs/morris.js). 
+
+The plugin has been wrapped in this ember addon so you can use it with your controller or model properties, whenever data is updated, the chart will also update.
 
 ## Installation
+**You will need jQuery loaded in your project, in next releases this will be done automaticly**
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+```npm install --save-dev ember-cli-morris-charts```
 
-## Running
+## Usage
+For now, only the basic options are working, but i will migrate everything very soon!<br />
+There are 4 types of charts available(Area, Line, Bar, Donut), acording to [morris charts docs](http://morrisjs.github.io/morris.js/#what-next):
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+**Area**<br />
+```{{morris-charts type="Area" data=DATA xKey=XKEY yKeys=YKEYS labels=LABELS resize=RESIZE}}```
 
-## Running Tests
+**Line**<br />
+```{{morris-charts type="Line" data=DATA xKey=XKEY yKeys=YKEYS labels=LABELS resize=RESIZE}}```
 
-* `ember test`
-* `ember test --server`
+**Bar**<br />
+```{{morris-charts type="Bar" data=DATA xKey=XKEY yKeys=YKEYS labels=LABELS resize=RESIZE}}```
 
-## Building
+**Donut**<br />
+```{{morris-charts type="Donut" data=DATA resize=RESIZE}}```
 
-* `ember build`
+You can use the tags above in your templates and provide extra properties (like data, xKey, yKeys, Labels and resize)in your *model* or *controllers*.
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+**Available options**<br />
+TYPE = String(Area, Line, Bar, Donut)<br />
+DATA = Array, *refer to morris chart docs according to TYPE*<br />
+XKEY = String, *should be one of your DATA array key, refer to morris chart docs*<br />
+yKEYS = Array, *should be an array with your DATA keys that you want displayed on y series, refer to morris chart docs*<br />
+labels = Array, *Label for each key in your y series, refer to morris chart docs*<br />
+resize = Bool, *True will make the chart responsive, defaults to false(not responsive)*<br />
+
+**Questions?**
+
+This is a new project, but many people are already using it successfully. If you have any trouble, open an issue, and you should get help quickly.
