@@ -27,13 +27,19 @@ There are 4 types of charts available(Area, Line, Bar, Donut), acording to [morr
 
 You can use the tags above in your templates and provide extra properties (like data, xKey, yKeys, Labels and resize)in your *model* or *controllers*.
 
-**Available options**<br />
-TYPE = String(Area, Line, Bar, Donut)<br />
-DATA = Array, *refer to morris chart docs according to TYPE*<br />
-XKEY = String, *should be one of your DATA array key, refer to morris chart docs*<br />
-yKEYS = Array, *should be an array with your DATA keys that you want displayed on y series, refer to morris chart docs*<br />
-labels = Array, *Label for each key in your y series, refer to morris chart docs*<br />
-resize = Bool, *True will make the chart responsive, defaults to false(not responsive)*<br />
+## Available options<br />
+**TYPE**<br />
+String(Area, Line, Bar, Donut)<br />
+**DATA**<br />
+Array, *refer to morris chart docs according to TYPE*<br />
+**XKEY**<br />
+String, *should be one of your DATA array key, refer to morris chart docs*<br />
+**yKEYS**<br />
+Array, *should be an array with your DATA keys that you want displayed on y series, refer to morris chart docs*<br />
+**LABELS**<br />
+Array, *Label for each key in your y series, refer to morris chart docs*<br />
+**RESIZE**<br />
+Bool, *True will make the chart responsive, defaults to false(not responsive)*<br />
 
 **Questions?**
 
