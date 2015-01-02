@@ -3,6 +3,7 @@ import Ember from 'ember';
 export
 default Ember.Component.extend({
     instance: false,
+    options: {},
     renderChart: function() {
         var type = this.get('type');
 
@@ -12,6 +13,10 @@ default Ember.Component.extend({
 
         type = type.toLowerCase();
 
+        // Options
+        this.setOptions();
+
+        // Render chart
         if (type === 'area') {
             this.renderArea();
         } else if (type === 'line') {
@@ -21,57 +26,51 @@ default Ember.Component.extend({
         } else if (type === 'donut') {
             this.renderDonut();
         }
-
-        console.debug(this.get('instance'));
-
     }.on('didInsertElement'),
-    renderArea: function() {
-        var options = {
-            element: this.$().attr('id'),
-            data: this.get('data'),
-            xkey: this.get('xKey'),
-            ykeys: this.get('yKeys'),
-            labels: this.get('labels'),
-            resize: this.get('resize') ? this.get('resize') : false
-        };
+    setOptions: function() {
+        var options = this.get('options');
 
-        var instance = window.Morris.Area(options);
+        options.element = this.$().attr('id');
+        options.data = this.get('data');
+        options.ykeys = this.get('resize') ? this.get('resize') : false;
+
+        if (this.get('xKey')) {
+            options.xkey = this.get('xKey');
+        }
+
+        if (this.get('yKeys')) {
+            options.ykeys = this.get('yKeys');
+        }
+
+        if (this.get('labels')) {
+            options.labels = this.get('labels');
+        }
+
+        if (this.get('xLabelFormat')) {
+            options.xLabelFormat = this.get('xLabelFormat');
+        }
+
+        if (this.get('parseTime') === 0) {
+            options.parseTime = false;
+        }
+
+        this.set('options', options);
+        return options;
+    },
+    renderArea: function() {
+        var instance = window.Morris.Area(this.get('options'));
         this.set('instance', instance);
     },
     renderLine: function() {
-        var options = {
-            element: this.$().attr('id'),
-            data: this.get('data'),
-            xkey: this.get('xKey'),
-            ykeys: this.get('yKeys'),
-            labels: this.get('labels'),
-            resize: this.get('resize') ? this.get('resize') : false
-        };
-
-        var instance = window.Morris.Line(options);
+        var instance = window.Morris.Line(this.get('options'));
         this.set('instance', instance);
     },
     renderBar: function() {
-        var options = {
-            element: this.$().attr('id'),
-            data: this.get('data'),
-            xkey: this.get('xKey'),
-            ykeys: this.get('yKeys'),
-            labels: this.get('labels'),
-            resize: this.get('resize') ? this.get('resize') : false
-        };
-
-        var instance = window.Morris.Bar(options);
+        var instance = window.Morris.Bar(this.get('options'));
         this.set('instance', instance);
     },
     renderDonut: function() {
-        var options = {
-            element: this.$().attr('id'),
-            data: this.get('data'),
-            resize: this.get('resize') ? this.get('resize') : false
-        };
-
-        var instance = window.Morris.Donut(options);
+        var instance = window.Morris.Donut(this.get('options'));
         this.set('instance', instance);
     },
     listenChanges: function() {
