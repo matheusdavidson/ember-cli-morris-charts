@@ -1,4 +1,5 @@
 # Ember-cli-morris-charts 
+**\*Not tested with ember 2.0(will update soon)**
 
 This is an ember cli addon to easily create awesome charts using [morris charts jquery plugin](https://github.com/morrisjs/morris.js). 
 
