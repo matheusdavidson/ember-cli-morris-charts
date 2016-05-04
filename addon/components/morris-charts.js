@@ -165,7 +165,12 @@ default Ember.Component.extend({
         if (this.get('parseTime') === 0) {
             options.parseTime = false;
         }
-
+        
+        if (this.get('colors')) {
+            options.colors = this.get('colors');
+        }
+        
+        
         this.set('options', options);
         return options;
     },
